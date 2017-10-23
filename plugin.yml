@@ -1,0 +1,7 @@
+name: CreeperGuild
+main: vip.creeper.mcserverplugins.creeperguild.CreeperGuild
+author: July_ss
+versiom: 1.0.0
+commands:
+  g:
+    alias: [guild, cg]
