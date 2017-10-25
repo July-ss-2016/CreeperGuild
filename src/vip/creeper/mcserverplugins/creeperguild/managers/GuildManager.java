@@ -37,11 +37,19 @@ public class GuildManager {
             return;
         }
 
+        guilds.clear();
+
         for (File guildFile : guildFiles) {
             YamlConfiguration guildYml = YamlConfiguration.loadConfiguration(guildFile);
+
+            guilds.add(new Guild(guildYml.getInt("uid")));
         }
 
-        guilds.clear();
+
+    }
+
+    public Guild getGuild(int gid) {
+        return null;
     }
 
     public List<Guild> getGuilds() {
