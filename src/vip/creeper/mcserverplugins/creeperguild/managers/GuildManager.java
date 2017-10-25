@@ -16,7 +16,7 @@ public class GuildManager {
     private List<Guild> guilds;
 
     public GuildManager() {
-        guilds = new ArrayList<>();
+        this.guilds = new ArrayList<>();
     }
 
     public boolean createGuild(final Player owner, final String guildName, final Date creationDate) {
@@ -40,6 +40,8 @@ public class GuildManager {
         for (File guildFile : guildFiles) {
             YamlConfiguration guildYml = YamlConfiguration.loadConfiguration(guildFile);
         }
+
+        guilds.clear();
     }
 
     public List<Guild> getGuilds() {
