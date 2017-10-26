@@ -19,7 +19,7 @@ public class GuildManager {
         this.guilds = new ArrayList<>();
     }
 
-    public boolean createGuild(final Player owner, final String guildName, final Date creationDate) {
+    public boolean createGuild(Player owner, String guildName, Date creationDate) {
         return false;
     }
 

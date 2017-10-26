@@ -6,23 +6,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Guild {
-    private int uid;
+    private int gid;
     private String name;
     private int level;
     private Date creationDate;
     private OfflinePlayer owner;
     private ArrayList<OfflinePlayer> members;
 
-    public Guild(int uid) {
-        this.uid = uid;
+    public Guild(int gid) {
+        this.gid = gid;
     }
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
+    public int getGid() {
+        return gid;
     }
 
     public String getName() {
