@@ -13,6 +13,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor {
         this.commands = new HashMap<>();
     }
 
+    //各个子命令都在这进行分配处理
     public boolean onCommand(final CommandSender cs, final Command cmd, final String lable, final String[] args) {
         if (args.length >= 1) {
             String firstArg = args[0].toLowerCase();
@@ -29,6 +30,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor {
         return  false;
     }
 
+    //注册命令
     public void registerCommand(final String firstArg, final GuildCommand cmd) {
         commands.put(firstArg.toLowerCase(), cmd);
     }

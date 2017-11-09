@@ -1,9 +1,6 @@
 package vip.creeper.mcserverplugins.creeperguild.managers;
 
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
-import org.yaml.snakeyaml.Yaml;
-import vip.creeper.mcserverplugins.creeperguild.CreeperGuild;
 import vip.creeper.mcserverplugins.creeperguild.Guild;
 import vip.creeper.mcserverplugins.creeperguild.utils.FileUtil;
 
@@ -19,7 +16,7 @@ public class GuildManager {
         this.guilds = new ArrayList<>();
     }
 
-    public boolean createGuild(Player owner, String guildName, Date creationDate) {
+    public boolean createGuild(String owner, String guildName, Date creationDate) {
         return false;
     }
 
@@ -53,6 +50,9 @@ public class GuildManager {
     }
 
     public List<Guild> getGuilds() {
+        //File foloder = new File(FileUtil.getPluginDataFolderAbsolutePath() + File.separator + )
+
+
         return this.guilds;
     }
 }
