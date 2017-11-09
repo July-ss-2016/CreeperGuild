@@ -1,12 +1,13 @@
 package vip.creeper.mcserverplugins.creeperguild;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 import vip.creeper.mcserverplugins.creeperguild.commands.GuildCreateCommand;
 import vip.creeper.mcserverplugins.creeperguild.managers.GuildCacheManager;
 import vip.creeper.mcserverplugins.creeperguild.managers.GuildManager;
 import vip.creeper.mcserverplugins.creeperguild.utils.MsgUtil;
+
+import java.util.Date;
 
 public class CreeperGuild extends JavaPlugin {
     private static CreeperGuild instance;
@@ -21,8 +22,13 @@ public class CreeperGuild extends JavaPlugin {
         this.guildCacheManager = new GuildCacheManager();
 
         registerCommands();
-        MsgUtil.info("commands registered!");
-        MsgUtil.info("plugin initialization finished!");
+        MsgUtil.info("命令注册完毕.");
+        MsgUtil.info("插件初始化完毕!");
+        test();
+    }
+
+    private void test() {
+        System.out.print(guildManager.createGuild("t", "t", new Date()));
     }
 
     private void registerCommands() {
