@@ -28,6 +28,7 @@ public class CreeperGuild extends JavaPlugin {
     }
 
     private void test() {
+        System.out.print("");
         System.out.print(guildManager.createGuild("t", "t", new Date()));
     }
 
