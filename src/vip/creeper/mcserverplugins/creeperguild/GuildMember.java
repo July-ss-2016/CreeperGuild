@@ -18,4 +18,5 @@ public class GuildMember {
         this.player = player;
         this.guild = guild;
     }
+
 }

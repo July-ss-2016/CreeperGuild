@@ -24,6 +24,7 @@ public class CreeperGuild extends JavaPlugin {
         registerCommands();
         MsgUtil.info("命令注册完毕.");
         MsgUtil.info("插件初始化完毕!");
+        MsgUtil.info("开始进行插件测试");
         test();
     }
 
@@ -46,5 +47,9 @@ public class CreeperGuild extends JavaPlugin {
 
     public GuildManager getGuildManager() {
         return guildManager;
+    }
+
+    public GuildCacheManager getGuildCacheManager() {
+        return guildCacheManager;
     }
 }
