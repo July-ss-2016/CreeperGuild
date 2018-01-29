@@ -1,8 +1,11 @@
 package vip.creeper.mcserverplugins.creeperguild.managers;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import vip.creeper.mcserverplugins.creeperguild.CreeperGuild;
 import vip.creeper.mcserverplugins.creeperguild.Guild;
 import vip.creeper.mcserverplugins.creeperguild.utils.FileUtil;
+import vip.creeper.mcserverplugins.creeperguild.utils.MsgUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,11 +14,17 @@ import java.util.Date;
 import java.util.List;
 
 public class GuildManager {
+    private CreeperGuild plugin;
+    private File guildCounterFile;
+    private YamlConfiguration guildCounterYml;
     private File guildsFolder;
     private List<Guild> guilds;
 
-    public GuildManager() {
+    public GuildManager(CreeperGuild plugin) {
+        this.plugin = plugin;
         this.guilds = new ArrayList<>();
+        this.guildCounterFile = new File(plugin.getDataFolder(), "guild_counter.yml"); //不需要考虑是否存在的问题，主程序已处理
+        this.guildCounterYml = YamlConfiguration.loadConfiguration(guildCounterFile);
         this.guildsFolder = new File(FileUtil.getPluginDataFolderAbsolutePath() + File.separator + "data" + File.separator + "guilds");
 
         loadGuilds();
@@ -41,10 +50,17 @@ public class GuildManager {
             e.printStackTrace();
         }
 
+
+
         newGuildYml.set("gid", gid);
+
         newGuildYml.set("guild_name", guildName);
-        
+
         return false;
+    }
+
+    public int getCreatedGuildCount() {
+        return -1;
     }
 
     // file path = .../guilds
