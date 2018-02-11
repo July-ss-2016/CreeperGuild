@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class CreeperGuild extends JavaPlugin {
-    private boolean firstLoad = true;
     private static CreeperGuild instance;
     private Economy vault;
     private PluginManager pluginManager;
@@ -77,7 +76,7 @@ public class CreeperGuild extends JavaPlugin {
     }
 
     public void onDisable() {
-        Bukkit.getScheduler().cancelAllTasks();
+        Bukkit.getScheduler().cancelTasks(this);
         info("插件已被卸载!");
     }
 
