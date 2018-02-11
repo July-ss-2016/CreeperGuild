@@ -1,53 +1,20 @@
 package vip.creeper.mcserverplugins.creeperguild.managers;
 
+import org.bukkit.Bukkit;
+import vip.creeper.mcserverplugins.creeperguild.Cache;
 import vip.creeper.mcserverplugins.creeperguild.CreeperGuild;
-import vip.creeper.mcserverplugins.creeperguild.Guild;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+/**
+ * Created by July on 2018/2/9.
+ */
 public class GuildCacheManager {
-    private static CreeperGuild plugin = CreeperGuild.getInstance();
-    private HashMap<Integer, Guild> caches = new HashMap<>();
+    private CreeperGuild plugin;
 
-    public GuildCacheManager() {
-        //加载所有工会至缓存
-        for (Guild guild : plugin.getGuildManager().getGuilds()) {
-            caches.put(guild.getGid(), guild);
-        }
+    public GuildCacheManager(CreeperGuild plugin) {
+        this.plugin = plugin;
     }
 
-    public List<Guild> getGuilds() {
-        List<Guild> guilds = new ArrayList<>();
-
-        if (caches.size() == 0) {
-            return null;
-        }
-
-        //values可能等于null
-        for (Guild guild : caches.values()) {
-            guilds.add(guild);
-        }
-
-        return guilds;
-    }
-
-    public Guild getGuild(int uid) {
-        if (!caches.containsKey(uid)) {
-            caches.put(uid, new Guild(uid));
-        }
-
-        return caches.get(uid);
-    }
-
-    //创建或更新缓存
-    public void createOrUpdateCache(int gid) {
-        caches.put(gid, plugin.getGuildManager().getGuild(gid));
-    }
-
-    //从缓存中删除工会
-    public void removeGuildFromCache(int gid) {
-        caches.remove(gid);
+    public void addCacheUpdateTask(Cache cache, long interval) {
+        Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, () -> Bukkit.getScheduler().runTask(plugin, cache::update), interval * 20L, interval * 20L);
     }
 }

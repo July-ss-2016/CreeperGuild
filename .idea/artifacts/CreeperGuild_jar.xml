@@ -4,6 +4,7 @@
     <root id="archive" name="CreeperGuild.jar">
       <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
       <element id="module-output" name="CreeperGuild" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
     </root>
   </artifact>
 </component>

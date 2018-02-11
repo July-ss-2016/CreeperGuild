@@ -1,0 +1,13 @@
+max_admin_num: 3
+set_spawn_cost_money: 8000
+placeholder_api:
+  chat_prefix:
+    has_not: '无公会'
+    has: '{guild_name}'
+  guild_name:
+    has_not: '无'
+    has: '{guild_name}'
+create:
+  name_min_len: 2
+  name_max_len: 6
+  cost_money: 30000

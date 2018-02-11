@@ -2,6 +2,7 @@ name: CreeperGuild
 main: vip.creeper.mcserverplugins.creeperguild.CreeperGuild
 author: July_ss
 version: 1.0.0
+depend: [Vault, PlaceholderAPI]
 commands:
-  g:
-    alias: [guild, cg]
+  guild:
+    aliases: [g, gh]
