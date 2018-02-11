@@ -23,9 +23,10 @@ public class GuildJoinCommand implements GuildCommand{
 
     public boolean onCommand(CommandSender cs, String[] args) {
         String playerName = cs.getName();
-        String gid = args[1];
 
         if (args.length == 2) {
+            String gid = args[1];
+            
             if (guildPlayerManager.isExistsGuildPlayer(playerName)) {
                 MsgUtil.sendMsg(cs, "&c申请失败: 您已经在一个公会了.");
                 return true;
