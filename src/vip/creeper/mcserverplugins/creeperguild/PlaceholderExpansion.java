@@ -2,27 +2,26 @@ package vip.creeper.mcserverplugins.creeperguild;
 
 import me.clip.placeholderapi.external.EZPlaceholderHook;
 import org.bukkit.entity.Player;
-import vip.creeper.mcserverplugins.creeperguild.managers.GuildPlayerManager;
+import vip.creeper.mcserverplugins.creeperguild.managers.GuildPlayerCacheManager;
 
 /**
  * Created by July on 2018/2/9.
  */
 public class PlaceholderExpansion extends EZPlaceholderHook {
-    private GuildPlayerManager guildPlayerManager;
+    private GuildPlayerCacheManager guildPlayerCacheManager;
     private Settings settings;
 
     public PlaceholderExpansion(CreeperGuild plugin) {
         super(plugin, "creeperguild");
 
-        this.guildPlayerManager = plugin.getGuildPlayerManager();
+        this.guildPlayerCacheManager = plugin.getGuildPlayerCacheManager();
         this.settings = plugin.getSettings();
     }
 
     public String onPlaceholderRequest(Player player, String s) {
         String playerName = player.getName();
-        boolean isInGuild = guildPlayerManager.isExistsGuildPlayer(playerName);
-
-        GuildPlayer guildPlayer = guildPlayerManager.getOrLoadGuildPlayer(playerName);
+        GuildPlayer guildPlayer = guildPlayerCacheManager.getOrLoadGuildPlayer(playerName);
+        boolean isInGuild = guildPlayer != null;
 
         switch (s) {
             case "chat_prefix":
